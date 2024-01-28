@@ -9,7 +9,6 @@ import '../template/css/animate.css'
 import '../template/css/owl.theme.default.min.css'
 import '../template/css/responsive.css'
 import React, { useState, useEffect } from 'react';
-import {useNavigate} from 'react-router-dom'
 function InsertionMarque() {
     const apiUrl = 'https://carshopbackend-production-477a.up.railway.app/carshop/Marques/voir';
   const token = localStorage.getItem('token');
