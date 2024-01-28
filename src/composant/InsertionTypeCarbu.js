@@ -1,5 +1,3 @@
-import React from 'react'
-//import { Link } from 'react-router-dom';
 import '../template/css/style.css'
 import '../template/css/bootsnav.css'
 import '../template/css/flaticon.css'
@@ -9,8 +7,69 @@ import '../template/css/animate.css'
 import '../template/css/owl.theme.default.min.css'
 import '../template/css/responsive.css'
 
-
+import React, { useState, useEffect } from 'react';
 function InsertionTypeCarbu() {
+    const apiUrl = 'https://carshopbackend-production-477a.up.railway.app/carshop/Type_carburants/voir';
+  const token = localStorage.getItem('token');
+  
+  const [type_carburant, setType_Carburants] = useState([]);
+
+  useEffect(() => {
+  const fetchData = async () => {
+    const requestOptions = {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    };
+    try {
+      console.log(token)
+      const response = await fetch(apiUrl, requestOptions);
+      if (!response.ok) {
+        throw new Error('La requête a échoué.');
+      }
+      const data = await response.json();
+      console.log(data.data)
+      setType_Carburants(data.data);
+    } catch (error) {
+      console.error('Erreur lors de la requête à l\'API:', error);
+    }
+  };
+
+  fetchData(); 
+}, [apiUrl, token]);
+
+//////////////////////////////////////////////
+
+  const [nom_type, setNom_type] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const apiUrl = 'https://carshopbackend-production-477a.up.railway.app/carshop/Type_carburants';
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ nom_type}),
+    };
+	
+    try {
+      const response = await fetch(apiUrl, requestOptions);
+		
+      if (!response.ok) {
+        throw new Error('La requête a échoué.');
+      }
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Erreur lors de la requête à l\'API:', error);
+    }
+  };
+
   return (
     <div>
         <div className="row">
@@ -24,10 +83,14 @@ function InsertionTypeCarbu() {
                                         </h2>
 									</div>{/*/.testimonial-info*/}
 									<div className="testimonial-comment">
-                                    <form>
+                                    <form onSubmit={handleSubmit}>
                                         <div className="cate">
                                             <label htmlFor="">Carburant : </label>
-                                            <input className='categorie' type="text" name="" id="" />
+                                            <input className="formbold-form-input"
+                                              placeholder="Carburant"
+                                              value={nom_type}
+                                              onChange={(e) => setNom_type(e.target.value)}
+                                            />
                                         </div>
                                         <div className="submit">
                                             <input type="submit" value="Valider" />
@@ -38,18 +101,22 @@ function InsertionTypeCarbu() {
                                     <div className="tab">
                                         <table>
                                             <tr>
-                                                <th>Categorie</th>
-                                                <th>Nom Categorie</th>
+                                                <th>Type </th>
+                                                <th>Nom Carburant</th>
                                                 <th></th>
                                                 <th></th>
                                             </tr>
                                            
-                                            <tr className="tr">
-                                                <td>1</td>
-                                                <td>Exemple</td>
+                                            <tbody>
+                                            {type_carburant.map((type_carburant, index) => (
+                                              <tr key={index}>
+                                                <td>{type_carburant.id_type_carburant}</td>
+                                                <td>{type_carburant.nom_type}</td>
                                                 <td><input type="submit" value="Modifier" /></td>
                                                 <td><input type="submit" value="Supprimer" /></td>
-                                            </tr>
+                                              </tr>
+                                            ))}
+                                    </tbody>
                                         </table>
                                     </div>
 									</div>{/*/.testimonial-person*/}

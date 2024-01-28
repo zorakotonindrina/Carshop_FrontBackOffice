@@ -10,7 +10,7 @@ import '../template/css/owl.theme.default.min.css'
 import '../template/css/responsive.css'
 import React, { useState, useEffect } from 'react';
 function InsertionMarque() {
-    const apiUrl = 'https://carshopbackend-production-477a.up.railway.app/carshop/Marques/voir';
+    const apiUrl = 'https://carshopbackend-production-477a.up.railway.app/carshop/Marques';
   const token = localStorage.getItem('token');
   
   const [marque, setMaques] = useState([]);
@@ -47,7 +47,7 @@ function InsertionMarque() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const apiUrl = 'https://carshopbackend-production-477a.up.railway.app/carshop/Marques/insert';
+    const apiUrl = 'https://carshopbackend-production-477a.up.railway.app/carshop/Marques';
     const requestOptions = {
       method: 'POST',
       headers: {
@@ -104,6 +104,7 @@ function InsertionMarque() {
                                     <div className="tab">
                                         <table>
                                             <tr>
+                                                <th>Marque</th>
                                                 <th>Nom Marque</th>
                                                 <th></th>
                                                 <th></th>
@@ -112,9 +113,10 @@ function InsertionMarque() {
                                           <tbody>
                                             {marque.map((marque, index) => (
                                               <tr key={index}>
+                                                <td>{marque.id_marque}</td>
                                                 <td>{marque.nom_marque}</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><input type="submit" value="Modifier" /></td>
+                                                <td><input type="submit" value="Supprimer" /></td>
                                               </tr>
                                             ))}
                                           </tbody>

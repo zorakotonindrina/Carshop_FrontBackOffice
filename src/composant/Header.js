@@ -44,7 +44,6 @@ function Header() {
 				                <ul className="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 								
 				                    <li className="scroll"><Link to="/firstpage">Liste Annonce</Link></li>
-				                    <li className="scroll"><Link to="/details/:id">Detail Voiture</Link></li>
 				                    <li className="scroll"><Link to="/insertion">Insertion</Link></li>
 				                    <li className="scroll"><a href="#contact">Statistique</a></li>
 									<li className="scroll"><a href="/deconnecter">Deconnecter</a></li>

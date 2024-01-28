@@ -1,4 +1,3 @@
-import React from 'react'
 import '../template/css/style.css'
 import '../template/css/bootsnav.css'
 import '../template/css/flaticon.css'
@@ -7,8 +6,41 @@ import '../template/css/bootstrap.min.css'
 import '../template/css/animate.css'
 import '../template/css/owl.theme.default.min.css'
 import '../template/css/responsive.css'
-
+import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 function DetailCar() {
+	const { id } = useParams();
+    const apiUrl = `https://carshopbackend-production-477a.up.railway.app/carshop/Detail_annonces/${id}`;
+  const [detail_annonce, setDetail_annonces] = useState();
+
+  useEffect(() => {
+  const fetchData = async () => {
+    const requestOptions = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    try {
+      const response = await fetch(apiUrl, requestOptions);
+      if (!response.ok) {
+        throw new Error('La requête a échoué.');
+      }
+      const data = await response.json();
+      console.log(data.data)
+      setDetail_annonces(data.data);
+    } catch (error) {
+      console.error('Erreur lors de la requête à l\'API:', error);
+    }
+  };
+
+  fetchData(); 
+}, [apiUrl]);
+
+if (!detail_annonce) {
+    return <div>Chargement en cours...</div>;
+  }
+
   return (
     <div>
         {/*new-cars start */}
@@ -30,21 +62,23 @@ function DetailCar() {
 									</div>
 									<div className="col-md-5 col-sm-12">
 										<div className="new-cars-txt">
-											<h2><a href="index.html">chevrolet camaro <span> za100</span></a></h2>
-											<h3><span>Annonceur : </span></h3>
-											<h4><span>Date Annonce : </span></h4>
-											<p> Model : </p>
-											<p> Marque : </p>
-											<p> Carburant : </p>
-											<p> Categorie : </p>
-											<p> Vitesse : </p>
-											<p> Kilometrage : </p>
-											<p> Fabrication : </p>
-											<p> Place : </p>
-											<p> Prix de Vente : </p>
+											<h2><a href="index.html">{detail_annonce.marque} {detail_annonce.modele} <span> {detail_annonce.matriculation}</span></a></h2>
+											<h3><span>Annonceur : {detail_annonce.nom} {detail_annonce.prenom}</span></h3>
+											<h4><span>Date Annonce :  {detail_annonce.date_annonce}</span></h4>
+											<p> Model :  {detail_annonce.modele}</p>
+											<p> Marque :  {detail_annonce.marque}</p>
+											<p> Carburant : {detail_annonce.types}</p>
+											<p> Categorie :  {detail_annonce.categorie}</p>
+											<p> Couleur :  {detail_annonce.couleur}</p>
+											<p> Kilometrage : {detail_annonce.kilometrage} </p>
+											<p> Consommation : {detail_annonce.consommation}</p>
+											<p> Capacite Reservoir : {detail_annonce.capacite_reservoir}</p>
+											<p> Fabrication : {detail_annonce.annee} </p>
+											<p> Place : {detail_annonce.nombre_place}</p>
+											<p> Prix de Vente : {detail_annonce.prix} </p>
 
 											<p className="new-cars-para2">
-												<h4> Description : </h4>Sed ut pers unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. 
+												<h4> Description :  {detail_annonce.descriptions} </h4> 
 											</p>
 											<button className="welcome-btn new-cars-btn" onclick="window.location.href='index.html'" style={{ marginRight: '10px' }}>
 												Accepter
