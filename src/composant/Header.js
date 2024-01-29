@@ -45,7 +45,7 @@ function Header() {
 								
 				                    <li className="scroll"><Link to="/firstpage">Liste Annonce</Link></li>
 				                    <li className="scroll"><Link to="/insertion">Insertion</Link></li>
-				                    <li className="scroll"><a href="/stat">Statistique</a></li>
+				                    <li className="scroll"><Link to="/stat">Satatistique</Link></li>
 									<li className="scroll"><a href="/deconnecter">Deconnecter</a></li>
 									
 				                </ul>{/*/.nav */}
