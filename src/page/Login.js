@@ -8,8 +8,8 @@ export function Login() {
 	const navigate = useNavigate();
   const apiUrl = 'https://carshopbackend-production-477a.up.railway.app/auth/login';
   
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('admin@gmail.com');
+  const [password, setPassword] = useState('000');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,7 +50,7 @@ export function Login() {
                     <label htmlFor="">Email : </label>
                     <input type="email" 
                     name="" className="login__input"
-                    placeholder="User name / Email"
+                    placeholder="admin@gmail.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)} />
                 </div>
@@ -58,7 +58,8 @@ export function Login() {
                     <label> Password  : </label>
                     <input type="password"
                         className="login__input"
-                        placeholder="Password"  value={password}
+                        placeholder="000"
+                         value={password}
                         onChange={(e) => setPassword(e.target.value)} />
                         </div>
                 <div>
