@@ -26,6 +26,9 @@
   
   .testimonial-comment {
     margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #888888;
   }
   
   form {
@@ -62,6 +65,15 @@
   .testimonial-person {
     margin-top: 20px;
   }
+
+  .testimonial-person input[type = "submit"]{
+    margin-top: 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
   
   .tab {
     width: 100%;
@@ -83,6 +95,8 @@
     background-color: #007bff;
     color: #fff;
   }
+
+
   
   /* Ajoutez d'autres styles au besoin */
   

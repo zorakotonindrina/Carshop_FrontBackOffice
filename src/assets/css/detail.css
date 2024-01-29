@@ -1,0 +1,117 @@
+/* Add your custom styles here */
+
+#new-cars {
+    background-color: #f8f8f8;
+    padding: 80px 0;
+  }
+
+  .section-header p {
+    font-size: 18px;
+    color: #3498db;
+    margin-bottom: 10px;
+  }
+
+  .section-header h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  .new-cars-content {
+    margin-top: 30px;
+  }
+
+  .new-cars-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  .new-cars-img img {
+    width: 100%;
+    max-width: 400px; /* Adjust the maximum width as needed */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .new-cars-txt {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 20px; /* Adjust the margin between image and text */
+  }
+
+  .new-cars-txt h2 a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .new-cars-txt h2 a span {
+    color: #3498db;
+  }
+
+  .new-cars-txt h3,
+  .new-cars-txt h4,
+  .new-cars-txt p {
+    margin: 10px 0;
+    color: #555;
+  }
+
+  .new-cars-para2 {
+    margin-top: 20px;
+    color: #777;
+  }
+
+  .new-cars-btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .welcome-btn.new-cars-btn {
+    flex: 1;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .welcome-btn.new-cars-btn:hover {
+    background-color: #2980b9;
+  }
+
+  /* Add your custom styles here */
+
+  .new-cars-btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .welcome-btn.new-cars-btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .welcome-btn.new-cars-btn:last-child {
+    margin-left: auto;
+  }
+
+  .welcome-btn.new-cars-btn:hover {
+    background-color: #2980b9;
+  }
+
+  

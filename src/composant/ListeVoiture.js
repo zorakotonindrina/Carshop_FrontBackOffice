@@ -7,6 +7,8 @@ import '../template/css/bootstrap.min.css'
 import '../template/css/animate.css'
 import '../template/css/owl.theme.default.min.css'
 import '../template/css/responsive.css'
+import '../assets/css/annonce.css'
+import carImage from '../assets/image/f2.jpg';
 import React, { useState, useEffect } from 'react';
 function ListeVoiture() {
     const apiUrl = 'https://carshopbackend-production-477a.up.railway.app/carshop/Detail_annonces/nonvalides';
@@ -55,7 +57,7 @@ function ListeVoiture() {
 							<div className="single-featured-cars">
 								<div className="featured-img-box">
 									<div className="featured-cars-img">
-										<img src="../template/images/featured-cars/fc1.png" alt="cars"></img>
+									<img src={carImage} alt="Car" />
 									</div>
 									<div className="featured-model-info">
 										<p>

@@ -8,6 +8,7 @@ import '../template/css/owl.theme.default.min.css'
 import '../template/css/responsive.css'
 import { useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import carImage from '../assets/image/f4.jpg';
 function DetailCar() {
 	const { id } = useParams();
     const apiUrl = `https://carshopbackend-production-477a.up.railway.app/carshop/Detail_annonces/${id}`;
@@ -41,6 +42,65 @@ if (!detail_annonce) {
     return <div>Chargement en cours...</div>;
   }
 
+
+
+  ///////////////////////////
+  console.log(" tsy miditraaa ");
+  const token = localStorage.getItem('token');
+  const handleValide = async (e,id_annonce) => {
+	console.log("miditraaa ",id_annonce);
+    e.preventDefault();
+    const apiUrl = `https://carshopbackend-production-477a.up.railway.app/carshop/Annonce_valides/${id_annonce}`;
+    const requestOptions = {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    };
+	
+    try {
+      const response = await fetch(apiUrl, requestOptions);
+		
+      if (!response.ok) {
+        throw new Error('La requête a échoué.');
+      }
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Erreur lors de la requête à l\'API:', error);
+    }
+  };
+
+
+  
+  const handleRefuse = async (e,id_annonce) => {
+	console.log("miditraaa ",id_annonce);
+    e.preventDefault();
+    const apiUrl = `https://carshopbackend-production-477a.up.railway.app/carshop/Annonce_refuss/${id_annonce}`;
+    const requestOptions = {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    };
+	
+    try {
+      const response = await fetch(apiUrl, requestOptions);
+		
+      if (!response.ok) {
+        throw new Error('La requête a échoué.');
+      }
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Erreur lors de la requête à l\'API:', error);
+    }
+  };
+
+
+
   return (
     <div>
         {/*new-cars start */}
@@ -57,7 +117,7 @@ if (!detail_annonce) {
 								<div className="row">
 									<div className="col-md-7 col-sm-12">
 										<div className="new-cars-img">
-											<img src="../template/images/new-cars-model/ncm1.png" alt="img"></img>
+											<img src={carImage} alt="Car" />
 										</div>{/*/.new-cars-img*/}
 									</div>
 									<div className="col-md-5 col-sm-12">
@@ -80,10 +140,10 @@ if (!detail_annonce) {
 											<p className="new-cars-para2">
 												<h4> Description :  {detail_annonce.descriptions} </h4> 
 											</p>
-											<button className="welcome-btn new-cars-btn" onclick="window.location.href='index.html'" style={{ marginRight: '10px' }}>
+											<button className="welcome-btn new-cars-btn" onClick={(e)=> handleValide(e, detail_annonce.id_annonce)}   style={{ marginRight: '10px' }}>
 												Accepter
 											</button>
-											<button className="welcome-btn new-cars-btn" onclick="window.location.href='index.html'" style={{ marginRight: '10px' }}>
+											<button className="welcome-btn new-cars-btn" onClick={(e)=> handleRefuse(e, detail_annonce.id_annonce)} style={{ marginRight: '10px' }}>
 												Refuser
 											</button>
 										</div>{/*/.new-cars-txt*/}	

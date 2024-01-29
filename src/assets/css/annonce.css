@@ -1,0 +1,79 @@
+
+
+
+  /* Add your custom styles here */
+
+  .single-featured-cars {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .single-featured-cars:hover {
+    transform: translateY(-5px);
+  }
+
+  .featured-img-box {
+    position: relative;
+  }
+
+  .featured-cars-img img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .featured-model-info p {
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .featured-mi-span,
+  .featured-hp-span {
+    font-weight: bold;
+    margin-left: 5px;
+  }
+
+  .featured-cars-txt {
+    padding: 15px;
+  }
+
+  .featured-cars-txt h2 a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .featured-cars-txt h2 a:hover {
+    color: #3498db;
+  }
+
+  .featured-cars-txt h3 {
+    color: #3498db;
+    margin-top: 5px;
+  }
+
+  .featured-cars-txt p {
+    color: #555;
+    margin-top: 10px;
+  }
+
+  .welcome-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .welcome-btn:hover {
+    background-color: #2980b9;
+  }

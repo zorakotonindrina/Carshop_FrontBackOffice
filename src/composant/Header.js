@@ -45,8 +45,9 @@ function Header() {
 								
 				                    <li className="scroll"><Link to="/firstpage">Liste Annonce</Link></li>
 				                    <li className="scroll"><Link to="/insertion">Insertion</Link></li>
-				                    <li className="scroll"><a href="#contact">Statistique</a></li>
+				                    <li className="scroll"><a href="/stat">Statistique</a></li>
 									<li className="scroll"><a href="/deconnecter">Deconnecter</a></li>
+									
 				                </ul>{/*/.nav */}
 				            </div>{/* /.navbar-collapse */}
 				        </div>{/*/.container*/}

@@ -1,6 +1,6 @@
 import {useNavigate} from 'react-router-dom'
 import '../assets/scss/login.css'
-import carImage from '../assets/image/car.jpg';
+import carImage from '../assets/image/car.png';
 import React, { useState } from 'react';
 
 export function Login() {

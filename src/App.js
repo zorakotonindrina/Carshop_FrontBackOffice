@@ -3,7 +3,7 @@ import Login from './page/Login';
 import Annonce from './page/Annonce';
 import DetailBack from './page/DetailBack';
 import Insertion from './page/Insertion';
-
+import Satatistique from './page/Satatistique';
 function App() { 
   const location = useLocation()
   return (
@@ -13,6 +13,7 @@ function App() {
         <Route path='/firstpage' Component={Annonce}></Route>
         <Route path='/details/:id' Component={DetailBack}></Route>
         <Route path='/insertion' Component={Insertion}></Route>
+        <Route path='/stat' Component={Satatistique}></Route>
         <Route path='/deconnecter' Component={Login}></Route>
     </Routes>
   );

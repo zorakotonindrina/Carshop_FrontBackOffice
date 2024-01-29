@@ -10,7 +10,7 @@ import '../template/css/bootstrap.min.css'
 import '../template/css/animate.css'
 import '../template/css/owl.theme.default.min.css'
 import '../template/css/responsive.css'
-
+import '../assets/css/marque.css'
 import InsertionCategorie from "../composant/InsertionCategorie"
 import InsertionMarque from './InsertionMarque';
 import InsertionModel from './InsertionModel';
