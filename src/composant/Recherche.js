@@ -11,6 +11,12 @@ import '../template/css/responsive.css'
 function Recherche() {
   return (
     <div>
+
+
+	<div className="container" style="width: 100px">
+
+	</div>
+
         
         <div className="container">
 				<div className="row">
